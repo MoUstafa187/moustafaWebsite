@@ -78,31 +78,23 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }, 100);
 
-    // Form submission mock
+    // Form submission to WhatsApp
     const form = document.getElementById("contact-form");
     if(form) {
         form.addEventListener("submit", (e) => {
             e.preventDefault();
-            const btn = form.querySelector('button[type="submit"]');
-            const originalText = btn.innerHTML;
             
-            btn.innerHTML = `<i class="ph ph-spinner animate-spin text-lg"></i> Sending...`;
-            btn.disabled = true;
-
-            setTimeout(() => {
-                btn.innerHTML = `<i class="ph ph-check-circle text-lg"></i> Sent Successfully!`;
-                btn.classList.add("!bg-green-500", "text-white");
-                btn.classList.remove("bg-white", "text-slate-900");
+            const name = document.getElementById("name").value.trim();
+            const message = document.getElementById("message").value.trim();
+            
+            if (name && message) {
+                const waNumber = "201279437917";
+                const text = `Hello Moustafa, my name is ${name}. ${message}`;
+                const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(text)}`;
                 
+                window.open(waUrl, "_blank");
                 form.reset();
-
-                setTimeout(() => {
-                    btn.innerHTML = originalText;
-                    btn.disabled = false;
-                    btn.classList.remove("!bg-green-500", "text-white");
-                    btn.classList.add("bg-white", "text-slate-900");
-                }, 3000);
-            }, 1500);
+            }
         });
     }
 });
