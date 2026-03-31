@@ -1,0 +1,151 @@
+/* Custom Scrollbar - Vercel style */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #000; 
+}
+::-webkit-scrollbar-thumb {
+  background: #333; 
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+/* Base selection */
+::selection {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+/* Scroll Reveal classes with premium easing */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-left.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(20px);
+  transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-right.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Premium Vercel-like Card with gradient border pseudo-element effect */
+.premium-card {
+  background: #0a0a0a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 24px -12px rgba(0, 0, 0, 1);
+}
+.premium-card:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -10px rgba(0,0,0,0.8), 0 0 40px -10px rgba(255,255,255,0.03);
+}
+
+/* Form Inputs */
+.premium-input {
+  background: #050505;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+.premium-input:focus {
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 15px rgba(255,255,255,0.05);
+  outline: none;
+}
+
+/* Gradients */
+.text-gradient-premium {
+  background: linear-gradient(180deg, #fff 0%, #a1a1aa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+.text-gradient-accent {
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Mesh Gradient Background */
+.mesh-bg {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  overflow: hidden;
+  z-index: -1;
+  background: #000;
+}
+.mesh-blob {
+  position: absolute;
+  filter: blur(120px);
+  opacity: 0.15;
+  border-radius: 50%;
+  animation: float 20s infinite alternate ease-in-out;
+}
+.mesh-1 { background: #3b82f6; width: 40vw; height: 40vw; top: -10vw; left: -10vw; animation-delay: 0s; }
+.mesh-2 { background: #8b5cf6; width: 35vw; height: 35vw; top: 30%; right: -10vw; animation-delay: -5s; }
+.mesh-3 { background: #ec4899; width: 30vw; height: 30vw; bottom: -10vw; left: 20%; animation-delay: -10s; }
+
+@keyframes float {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(30px, -40px) scale(1.1); }
+  100% { transform: translate(-30px, 40px) scale(0.9); }
+}
+
+/* Subtle glow effect for text */
+.text-glow {
+  text-shadow: 0 0 30px rgba(255,255,255,0.2);
+}
+
+/* Button hover scale */
+.btn-scale {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-scale:active {
+  transform: scale(0.96);
+}
+
+/* Image container */
+.img-glow-container {
+  position: relative;
+}
+.img-glow-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.0));
+  border-radius: inherit;
+  margin: -1px;
+  z-index: -1;
+}
+
+/* Navbar blur effect tweak */
+.nav-blur {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
